@@ -43,6 +43,7 @@ class Graph
 		$vAxisEvol->setTitle('Evolution en %');
 		$chart->getOptions()->setVAxes([$vAxisAmount, $vAxisEvol]);
 
+
 		$seriesAmount = new \CMEN\GoogleChartsBundle\GoogleCharts\Options\ComboChart\Series();
 		$seriesAmount->setType('bars');
 		$seriesAmount->setTargetAxisIndex(0);
