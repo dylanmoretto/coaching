@@ -1,0 +1,45 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div class ="col-lg-6 col-lg-offset-3">
+  <div class=center-block style=float:none;>
+    
+    {% if add is defined %}
+      <div class="alert alert-success" role="alert">
+       <strong>Le client a bien été créé !</strong>
+      </div>
+    {% endif %}
+
+    <form method="POST" action="addClient">
+
+      <div class="form-group">
+        <label for="name">Prénom</label>
+        <input type="text" class="form-control" id="name" name='name' placeholder="Prénom du client">
+      </div>
+
+      <div class="form-group">
+        <label for="surname">Nom de famille</label>
+        <input type="text" class="form-control" id="surname" name='surname' placeholder="Nom du client">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Date de naissance</label>
+        <input type="date" class="form-control" id="date" name='date' placeholder="Nom du client">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Sexe</label>
+        <select class="form-control form-control-sm" name='sexe'id ="selectSexe">
+              <option value='M'>Homme</option>
+              <option value='F'>Femme</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+       <button type="submit" class="btn btn-primary">Submit</button>
+     </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

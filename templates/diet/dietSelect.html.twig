@@ -1,0 +1,26 @@
+{% extends intro is defined 
+    ? 'layoutAjax.html.twig'
+    : 'layout.html.twig'  %}
+
+{% block content %}
+	<div class ="col-lg-8 selector">
+		<table class="table">
+		  <thead class="thead-dark">
+		    <tr>
+		      <th scope="col">Client</th>
+		      <th scope="col">Date</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		{% for d in dietClient %}
+			<tr>
+				<td>{{d.id}}</td>
+				<td>{{d.date|date('Y-m-d')}}</td>
+				<td><input type="button" i = {{d.id}} class="btn btn-primary selectDiet" >Choisir</a></td>
+	    		<td><input type='button' class="btn btn-danger delDiet" id ="{{d.id}}" idClient ="{{d.client}}" >Supprimer</td>
+			</tr>
+		{% endfor %}
+		 </tbody>
+		</table>
+	</div>
+{% endblock %}

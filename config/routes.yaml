@@ -1,0 +1,60 @@
+index:
+    path: /
+    controller: App\Controller\FrontController::index
+
+contact:
+    path: /contact
+    controller: App\Controller\FrontController::getContactForm
+    methods:    [GET]
+
+contactPost:
+    path: /contact
+    controller: App\Controller\FrontController::getContactPost
+    methods:    [POST]
+
+getDiet:
+    path:     /getDiet/{id}
+    controller: App\Controller\DietController::getDiet
+
+getListDiet:
+    path:     /getListDiet/{id}/{newDiet}
+    controller: App\Controller\DietController::getListDiet
+
+addDiet:
+    path:    /addDiet/{idAliment}/{quantity}/{repas}
+    controller: App\Controller\DietController::addDiet
+
+delDietItem:
+    path:    /delDietItem/{id}
+    controller: App\Controller\DietController::delDietItem
+
+addClientForm:
+    path:    /addClientForm
+    controller: App\Controller\ClientController::addClientForm
+    
+addClient:
+    path:    /addClient
+    controller: App\Controller\ClientController::addClient
+
+admin:
+    path:    /admin
+    controller: App\Controller\DietController::index
+
+getView:
+    path:    /admin/getView
+    controller: App\Controller\AdminController::getView
+
+login:
+    path:    /login
+    controller: App\Controller\AdminController::getIndex
+
+app_logout:
+    path: /logout
+
+delDiet:
+    path:    /delDiet/{idDiet}/{idClient}
+    controller: App\Controller\DietController::delDiet
+
+getDietExcel:
+    path:    /getDietExcel/{idDiet}
+    controller: App\Controller\ExportController::getDietExcel

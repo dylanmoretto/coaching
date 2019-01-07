@@ -1,0 +1,82 @@
+{% block content %}
+
+<div class="col-lg-8">
+	<table class="table">
+	  <thead class="thead-dark">
+	    <tr>
+	      <th scope="col">Aliment</th>
+	      <th scope="col">Quantité</th>
+	      <th scope="col">Protein</th>
+	      <th scope="col">Glucide</th>
+	      <th scope="col">Lipide</th>
+	      <th scope="col">Kcal</th>
+	      <th scope="col">Supprimer</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+
+	 <!-- on parcours tous les repas -->	  	
+  	{% if repas is defined %}
+  		{% for r in repas %}
+		    <tr><td class="repasNumber">Repas {{r.repas}}</td></tr>
+
+		    <!--  on parcours les aliment de la diet  -->
+		  	{% if diet is defined %}
+		  		{% for d in diet %}
+		  			<!-- On affiche les aliment du repas parcouru  -->
+		  			{% if d.repas == r.repas %}
+					    <tr class="">
+					      <td>{{d.name}}</td>
+					      <td>{{d.qte}}</td>
+					      <td>{{d.protein}}</td>
+					      <td>{{d.carb}}</td>
+					      <td>{{d.fat}}</td>
+					      <td>{{d.kcal}}</td>
+			    		  <td><button type='button' class="btn btn-danger delDietItem" id ="{{d.id}}" >Supprimer</button></td>
+					    </tr>
+					  {% endif %}
+				{% endfor %}
+		 	{% endif %}
+		{% endfor %}
+ 	{% endif %}
+
+ 		<!--  on affiche les macro totaux  -->
+	  	{% if sum is defined %}
+	  		{% for s in sum %}
+			    <tr> 
+			      <td>Total</td>
+			      <td>{{s.qte}}</td>
+			      <td>{{s.protein}}</td>
+			      <td>{{s.carb}}</td>
+			      <td>{{s.fat}}</td>
+			      <td>{{s.kcal}}</td>
+			    </tr>
+			{% endfor %}
+	 	{% endif %}
+	</table>
+</div>
+
+<div class ="col-lg-4 right-panel">
+	<h2>Choix aliment<h2>
+
+<select class="form-control form-control-sm" id ="selectRepas">
+	{% for i in 1..8 %}
+		  <option value='{{i}}'>Repas {{i}}</option>
+	{% endfor %}
+</select>	
+
+	{% for food in foods %}
+		<div class="col-lg-12 searchPanel">
+			<div class ="col-lg-4">
+				<p class="searchName">{{food.name}} </p>
+			</div>
+			<div class ="col-lg-4">
+				<input type ="text" placeholder="qte en g" class="form-control qte{{food.id}}"> 
+			</div>
+			<div class ="col-lg-4">
+				<button type="button" i = {{food.id}} class="btn btn-primary addDiet" id="{{food.id}}" >Ajouter</a> 
+			</div>
+		</div>
+	{% endfor %}
+</div>
+{% endblock %}

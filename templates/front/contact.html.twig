@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<Section class="contact py-lg-4 py-md-3 py-sm-3 py-3" id="contact">
+      <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
+      	{% if sendEmail is defined %}
+	      	<div class="alert alert-success" role="alert">
+	 			Nous avons bien reçue votre demande !
+			</div>
+		{% endif %}
+        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Contact Us</h3>
+        <div class=" contact-form aos-init aos-animate" data-aos="fade-left"
+          data-aos-offset="100"
+          data-aos-easing="ease-in-sine">
+          <form action="#" method="post">
+            <div class="row text-center contact-wls-detail">
+              <div class="col-md-4 form-group contact-forms">
+                <input type="text" class="form-control" name="name" placeholder="Your Name" required="">
+              </div>
+              <div class="col-md-4 form-group contact-forms">
+                <input type="email" class="form-control" name ="email" placeholder="Your Email" required="">
+              </div>
+              <div class="col-md-4 form-group contact-forms">
+                <input type="text"  name="phone" class="form-control" placeholder="Phone " required="">
+              </div>
+            </div>
+            <div class="form-group contact-forms">
+              <textarea class="form-control" rows="3" name ="message" placeholder="Your Message" required=""></textarea>
+            </div>
+            <button type="submit" class="btn sent-butnn">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+{% endblock %}

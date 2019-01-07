@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div id ="result">
+  <h1>Selecteur de Client</h1>
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Choix du client</label>
+      <select multiple class="form-control" id = "client">
+      {% for client in clients %}
+        <option value = {{client.id}}>{{client.name}} {{client.surname}}</option>
+      {% endfor %}}
+      </select>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="newDiet">
+      <label class="form-check-label" for="exampleCheck1">Nouvelle diet</label>
+    </div>
+    </div>
+    <a id ="test" >Continuer</a>
+  </form>
+</div>
+
+{% endblock %}
