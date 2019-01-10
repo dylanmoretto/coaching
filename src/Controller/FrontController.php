@@ -7,14 +7,16 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use App\Entity\View;
+use Symfony\Component\Translation\TranslatorInterface;
 
+use Symfony\Component\Translation\Loader\ArrayLoader;
 
 class FrontController extends AbstractController
 {
     /**
      * @Route("/front", name="front")
      */
-    public function index(Request $request)
+    public function index(Request $request, TranslatorInterface $translator)
     {
     	$ip = $_SERVER['REMOTE_ADDR'];
     	$url =$request->getPathInfo();

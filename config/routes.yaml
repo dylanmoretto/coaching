@@ -58,3 +58,7 @@ delDiet:
 getDietExcel:
     path:    /getDietExcel/{idDiet}
     controller: App\Controller\ExportController::getDietExcel
+
+getProduct:
+    path:    /getProduct
+    controller: App\Controller\ApiController::getProduct
