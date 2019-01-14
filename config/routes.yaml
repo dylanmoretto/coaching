@@ -1,3 +1,6 @@
+#
+# Route Front 
+#
 index:
     path: /
     controller: App\Controller\FrontController::index
@@ -12,6 +15,30 @@ contactPost:
     controller: App\Controller\FrontController::getContactPost
     methods:    [POST]
 
+
+#
+# Route Admin Panel
+#
+admin:
+    path:    /admin
+    controller: App\Controller\DietController::index
+
+getView:
+    path:    /admin/getView/{time}
+    controller: App\Controller\AdminController::getView
+    defaults:
+        time: 'month'
+login:
+    path:    /login
+    controller: App\Controller\AdminController::getIndex
+
+app_logout:
+    path: /logout
+
+
+#
+# Route Diet
+#
 getDiet:
     path:     /getDiet/{id}
     controller: App\Controller\DietController::getDiet
@@ -36,20 +63,6 @@ addClient:
     path:    /addClient
     controller: App\Controller\ClientController::addClient
 
-admin:
-    path:    /admin
-    controller: App\Controller\DietController::index
-
-getView:
-    path:    /admin/getView
-    controller: App\Controller\AdminController::getView
-
-login:
-    path:    /login
-    controller: App\Controller\AdminController::getIndex
-
-app_logout:
-    path: /logout
 
 delDiet:
     path:    /delDiet/{idDiet}/{idClient}
@@ -58,6 +71,11 @@ delDiet:
 getDietExcel:
     path:    /getDietExcel/{idDiet}
     controller: App\Controller\ExportController::getDietExcel
+
+
+#
+# Route Api
+#
 
 getProduct:
     path:    /getProduct

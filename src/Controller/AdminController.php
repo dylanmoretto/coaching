@@ -7,6 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Entity\Client;
+use App\Entity\View;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Classes\Graph;
@@ -30,9 +31,13 @@ class AdminController extends AbstractController
 	}
 
 
-  public function getView()
+  public function getView($time)
   {
-      $chart = new Graph;
+      $repository = $this->getDoctrine()->getRepository(View::class);
+      $em = $this->getDoctrine()->getConnection();
+
+      $chart = new Graph($repository, $em);
+      $chart->time = $time;
       $tab = $chart->getGraphView();
 
       return $this->render('diet/view.html.twig', array(
