@@ -80,3 +80,7 @@ getDietExcel:
 getProduct:
     path:    /getProduct
     controller: App\Controller\ApiController::getProduct
+
+createToken:
+    path:    /createToken/{token}
+    controller: App\Controller\ApiController::createToken

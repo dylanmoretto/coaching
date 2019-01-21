@@ -7,6 +7,7 @@ parameters:
     locale: 'en'
 
 services:
+    
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
@@ -31,6 +32,11 @@ services:
         class: App\Classes\Graph
         arguments: [ "@doctrine.orm.entity_manager" ]
 
+
+    app.token_authenticator:   
+        class: Doctrine\ORM\EntityRepository
+        factory: 'Doctrine\ORM\EntityManagerInterface:getRepository'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
@@ -39,3 +45,5 @@ knp_snappy:
 
 cmen_google_charts:
     version: "current"
+
+
